@@ -1,0 +1,274 @@
+{
+  "info": {
+    "name": "School Management API",
+    "description": "Collection for testing School Management API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Home",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            ""
+          ]
+        },
+        "description": "Check if the API is running successfully"
+      }
+    },
+    {
+      "name": "Add School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Delhi Public School\",\n  \"address\": \"New Delhi, India\",\n  \"latitude\": 28.7041,\n  \"longitude\": 77.1025\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Add a new school to the database"
+      }
+    },
+    {
+      "name": "Add School - Example 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Central School\",\n  \"address\": \"Mumbai, India\",\n  \"latitude\": 19.0760,\n  \"longitude\": 72.8777\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Add another school example"
+      }
+    },
+    {
+      "name": "Add School - Example 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"North School\",\n  \"address\": \"Bangalore, India\",\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Add third school example"
+      }
+    },
+    {
+      "name": "List Schools - From Delhi",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/listSchools?latitude=28.7041&longitude=77.1025",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "listSchools"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "28.7041"
+            },
+            {
+              "key": "longitude",
+              "value": "77.1025"
+            }
+          ]
+        },
+        "description": "Get all schools sorted by proximity to Delhi"
+      }
+    },
+    {
+      "name": "List Schools - From Mumbai",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/listSchools?latitude=19.0760&longitude=72.8777",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "listSchools"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "19.0760"
+            },
+            {
+              "key": "longitude",
+              "value": "72.8777"
+            }
+          ]
+        },
+        "description": "Get all schools sorted by proximity to Mumbai"
+      }
+    },
+    {
+      "name": "List Schools - From Bangalore",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/listSchools?latitude=12.9716&longitude=77.5946",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "listSchools"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "12.9716"
+            },
+            {
+              "key": "longitude",
+              "value": "77.5946"
+            }
+          ]
+        },
+        "description": "Get all schools sorted by proximity to Bangalore"
+      }
+    },
+    {
+      "name": "List Schools - Error Test (Missing Params)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/listSchools",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "listSchools"
+          ]
+        },
+        "description": "Test error handling - missing latitude and longitude parameters"
+      }
+    },
+    {
+      "name": "Add School - Error Test (Missing Field)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test School\",\n  \"address\": \"Test Address\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Test error handling - missing latitude and longitude"
+      }
+    },
+    {
+      "name": "Add School - Error Test (Invalid Coordinates)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test School\",\n  \"address\": \"Test Address\",\n  \"latitude\": \"invalid\",\n  \"longitude\": \"invalid\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "addSchool"
+          ]
+        },
+        "description": "Test error handling - invalid coordinate values"
+      }
+    }
+  ]
+}
